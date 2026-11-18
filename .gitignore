@@ -1,0 +1,10 @@
+# downloaded inputs
+*/data/
+# large outputs
+*.nc
+*.mp4
+# python / notebooks
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
