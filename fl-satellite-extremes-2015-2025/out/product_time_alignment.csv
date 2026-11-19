@@ -1,0 +1,10 @@
+product,applied_extra_lag_h,note
+mrms_gaugecorr,0,stamp = hour end; converted
+mrms_radaronly,0,stamp = hour end; converted
+stage4,0,stamp = hour end; converted
+nldas2,1,+1 h shift (file stamp = hour end)
+pccs,0,stamp = hour start
+cmorph,0,stamp = hour start
+imerg,0,stamp = hour start
+era5,0,stamp = hour end; converted to hour start
+merra2,0,stamp = hour start

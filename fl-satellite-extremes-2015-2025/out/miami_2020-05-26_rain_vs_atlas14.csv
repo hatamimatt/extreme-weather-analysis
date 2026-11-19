@@ -1,0 +1,7 @@
+metric,mm,inches,atlas14_context
+Gauge 1-hour total (22–23 UTC),84.6,3.33,≈10-yr (10-yr 60-min = 3.39 in)
+Gauge 2-hour total (21–23 UTC),163.1,6.42,between 50-yr (5.95 in) and 100-yr (6.78 in)
+"Stage IV over gauge, 22–23 UTC",54.8,2.16,≈1-yr (1-yr 60-min = 2.09 in)
+"CMORPH over gauge, 22–23 UTC",10.7,0.42,far below 1-yr
+"PERSIANN-CCS over gauge, 22–23 UTC",7.5,0.3,far below 1-yr
+"IMERG over gauge, 22–23 UTC",4.6,0.18,far below 1-yr

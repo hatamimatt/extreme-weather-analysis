@@ -1,0 +1,37 @@
+product,label,type,pixel_dx_km,pixel_dy_km,nbhd,block,side_km,area_km2,stations_covered
+mrms_gaugecorr,MRMS gauge-corrected (1 km),radar+gauge,0.98,1.11,N1,1x1,1.0,1.1,79
+mrms_gaugecorr,MRMS gauge-corrected (1 km),radar+gauge,0.98,1.11,N4,2x2,2.1,4.4,79
+mrms_gaugecorr,MRMS gauge-corrected (1 km),radar+gauge,0.98,1.11,N9,3x3,3.1,9.8,79
+mrms_gaugecorr,MRMS gauge-corrected (1 km),radar+gauge,0.98,1.11,N16,4x4,4.2,17.4,79
+mrms_radaronly,MRMS radar-only (1 km),radar,0.98,1.11,N1,1x1,1.0,1.1,79
+mrms_radaronly,MRMS radar-only (1 km),radar,0.98,1.11,N4,2x2,2.1,4.4,79
+mrms_radaronly,MRMS radar-only (1 km),radar,0.98,1.11,N9,3x3,3.1,9.8,79
+mrms_radaronly,MRMS radar-only (1 km),radar,0.98,1.11,N16,4x4,4.2,17.4,79
+stage4,Stage IV (4 km),radar+gauge,3.76,3.76,N1,1x1,3.8,14.1,79
+stage4,Stage IV (4 km),radar+gauge,3.76,3.76,N4,2x2,7.5,56.5,79
+stage4,Stage IV (4 km),radar+gauge,3.76,3.76,N9,3x3,11.3,127.1,79
+stage4,Stage IV (4 km),radar+gauge,3.76,3.76,N16,4x4,15.0,225.9,79
+nldas2,NLDAS-2 (0.125°),gauge/radar-based reanalysis forcing,12.22,13.9,N1,1x1,13.0,169.9,75
+nldas2,NLDAS-2 (0.125°),gauge/radar-based reanalysis forcing,12.22,13.9,N4,2x2,26.1,679.5,75
+nldas2,NLDAS-2 (0.125°),gauge/radar-based reanalysis forcing,12.22,13.9,N9,3x3,39.1,1528.9,75
+nldas2,NLDAS-2 (0.125°),gauge/radar-based reanalysis forcing,12.22,13.9,N16,4x4,52.1,2718.1,75
+pccs,PERSIANN-CCS (0.04°),satellite (IR),3.92,4.45,N1,1x1,4.2,17.5,79
+pccs,PERSIANN-CCS (0.04°),satellite (IR),3.92,4.45,N4,2x2,8.4,69.8,79
+pccs,PERSIANN-CCS (0.04°),satellite (IR),3.92,4.45,N9,3x3,12.5,157.1,79
+pccs,PERSIANN-CCS (0.04°),satellite (IR),3.92,4.45,N16,4x4,16.7,279.2,79
+cmorph,CMORPH CDR (8 km),"satellite (MW+IR, bias-corrected)",7.14,8.09,N1,1x1,7.6,57.8,79
+cmorph,CMORPH CDR (8 km),"satellite (MW+IR, bias-corrected)",7.14,8.09,N4,2x2,15.2,231.0,79
+cmorph,CMORPH CDR (8 km),"satellite (MW+IR, bias-corrected)",7.14,8.09,N9,3x3,22.8,519.8,79
+cmorph,CMORPH CDR (8 km),"satellite (MW+IR, bias-corrected)",7.14,8.09,N16,4x4,30.4,924.1,79
+imerg,IMERG V07 Final (0.1°),"satellite (MW+IR, gauge-adjusted)",9.8,11.12,N1,1x1,10.4,109.0,79
+imerg,IMERG V07 Final (0.1°),"satellite (MW+IR, gauge-adjusted)",9.8,11.12,N4,2x2,20.9,436.1,79
+imerg,IMERG V07 Final (0.1°),"satellite (MW+IR, gauge-adjusted)",9.8,11.12,N9,3x3,31.3,981.2,79
+imerg,IMERG V07 Final (0.1°),"satellite (MW+IR, gauge-adjusted)",9.8,11.12,N16,4x4,41.8,1744.4,79
+era5,ERA5 (0.25°),atmospheric reanalysis,24.54,27.8,N1,1x1,26.1,682.3,79
+era5,ERA5 (0.25°),atmospheric reanalysis,24.54,27.8,N4,2x2,52.2,2729.3,79
+era5,ERA5 (0.25°),atmospheric reanalysis,24.54,27.8,N9,3x3,78.4,6140.8,79
+era5,ERA5 (0.25°),atmospheric reanalysis,24.54,27.8,N16,4x4,104.5,10917.0,79
+merra2,MERRA-2 (0.5°×0.625°),atmospheric reanalysis,61.36,55.6,N1,1x1,58.4,3411.6,79
+merra2,MERRA-2 (0.5°×0.625°),atmospheric reanalysis,61.36,55.6,N4,2x2,116.8,13646.3,79
+merra2,MERRA-2 (0.5°×0.625°),atmospheric reanalysis,61.36,55.6,N9,3x3,175.2,30704.1,79
+merra2,MERRA-2 (0.5°×0.625°),atmospheric reanalysis,61.36,55.6,N16,4x4,233.6,54585.1,79

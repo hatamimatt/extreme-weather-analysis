@@ -1,0 +1,29 @@
+# credentials - never commit
+.env
+.netrc
+.cdsapirc
+*_key*
+*.token
+# raw downloads and intermediate product windows (regenerate with notebooks 01-05)
+ghcnh/
+prod/imerg/
+prod/era5/
+prod/ck_*/
+prod/*_win.npy
+prod/*.json
+prod/log_*.txt
+prod/*_progress_*.txt
+miami/
+cartopy_data/
+*.grib2
+*.grib2.gz
+*.nc
+*.nc4
+*.bin.gz
+# large derived file: publish as a GitHub Release asset or on Zenodo
+out/product_neighborhood_hourly.parquet
+# python / jupyter
+__pycache__/
+.ipynb_checkpoints/
+*.bak
+.DS_Store

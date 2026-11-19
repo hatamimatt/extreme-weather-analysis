@@ -1,0 +1,5 @@
+threshold,hours,events,stations,flagged_hours,wet_season_frac
+20,8632,7466,79,59,0.8
+30,3271,2996,79,52,0.83
+40,1244,1169,79,51,0.85
+50,511,485,77,17,0.86

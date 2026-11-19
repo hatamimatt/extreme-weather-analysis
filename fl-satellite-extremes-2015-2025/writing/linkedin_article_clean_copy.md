@@ -1,0 +1,123 @@
+# Satellites miss 9 in 10 of Florida's heaviest rains
+
+*They see the storm, but not how hard it rains. What I learned testing three satellite rainfall products against 79 Florida rain gauges.*
+
+## TL;DR
+- Satellites detect rain in 82–94% of Florida's extreme hours (≥30 mm of rain in an hour), but reach that intensity in only 2–6%.
+- Radar does far better (53–66%), even when it uses no rain gauges at all.
+- Infrared and microwave satellites fail in opposite kinds of storms.
+
+## The storm
+
+On 26 May 2020, between 6 and 7 pm local time, the rain gauge at Miami International Airport measured 84.6 mm of rain in one hour, enough to flood streets within minutes.
+
+Three widely used satellite rainfall products were watching the same hour from orbit. Over the gauge, PERSIANN-CCS showed 8 mm, CMORPH 11 mm and IMERG 5 mm. Ground-based radar (Stage IV) showed 55 mm.
+
+> *Insert image: sat_fig1_miami.png*
+
+## What happened on the ground
+
+**Two hours, 163 mm (6.4 in).** Between 5 and 7 pm the airport gauge recorded 163 mm. By NOAA's official frequency estimates (Atlas 14), that is roughly a 50- to 100-year two-hour rainfall at that location.
+
+> *Insert image: atlas14_miami_highlighted.png*
+
+**Flooding across Miami-Dade.** NOAA's Storm Events Database logged flood reports across northern Miami-Dade that evening:
+- waist-deep water on an I-95 on-ramp
+- up to 48 structures affected by floodwater in a trailer park
+- apartments in Opa-locka with at least 18 inches of water inside
+- cars stalled and people stranded near the airport
+- water entering properties in Miami Beach
+
+**It lasted.** Several days of earlier rain had already saturated the ground. NOAA's event summary describes the flooding as "significant and very slow to recede", lasting up to 48 hours in parts of northern Miami-Dade.
+
+> *Optional image: sat_fig4_flood_map.png*
+
+Now look at the satellite numbers again: 5–11 mm over the gauge in the wettest hour. That is far below even NOAA's 1-year one-hour rainfall for Miami (2.09 in, about 53 mm). A flood-producing, roughly once-in-50-to-100-year rainfall (over two hours) looks, from orbit, like an ordinary shower.
+
+## Why this matters
+
+Satellite rainfall is one of the great achievements of Earth observation. It covers most of the globe (roughly 60°N to 60°S) every 30 minutes, including oceans, mountains and countries with almost no rain gauges. It feeds flood forecasting, drought monitoring, climate research and hazard maps around the world.
+
+So the question matters: when it really pours, how much of it do satellites capture?
+
+## What I tested
+
+- **Ground truth:** 79 quality-controlled hourly rain gauges across Florida (NOAA's GHCNh), 2015–2025.
+- **Extremes:** every hour with at least 20, 30, 40 or 50 mm of rain at a gauge. That is thousands of events, from sea-breeze thunderstorms to hurricanes.
+- **Satellite products:**
+    - IMERG V07 Final (NASA, about 10 km pixels): combines microwave and infrared satellites, with monthly gauge adjustment.
+    - CMORPH CDR (NOAA, 8 km): microwave and infrared, bias-corrected.
+    - PERSIANN-CCS (UC Irvine, 4 km): infrared cloud-top temperatures only.
+- **Yardstick:** NOAA's Stage IV radar analysis.
+- **The test:** for each extreme hour, did the product show the same intensity? I checked the pixel over the gauge and blocks of 2×2, 3×3 and 4×4 pixels around it, so that small position errors weren't penalised.
+
+## What I found
+
+### Finding 1: Satellites almost always see the storm.
+For hours with at least 30 mm of rain, the satellite products show some rain near the gauge in 82–94% of cases. Detection and location are not the main problem (though 6–18% of these events show no rain at all nearby).
+
+### Finding 2: They rarely see how hard it rains.
+- Only 34–41% of those events show even heavy rain (≥10 mm/h).
+- Just 2–6% reach the gauge's intensity of ≥30 mm/h, against 66% for radar. In other words, the satellites miss more than 9 in 10 of these extremes (94–98%, depending on the product).
+- Over the gauge, the satellites show a median of about 10% of the peak the gauge measured. Radar shows about 62%.
+- Is radar's advantage just the gauges talking to themselves? Stage IV is adjusted with gauges, possibly including some of these airport gauges. But MRMS radar-only, which uses no gauges at all, still reaches the extreme in 53% of events and shows 63% of the peak. The gap to satellites is real.
+
+> *Insert image: sat_fig2_funnel.png*
+
+### Finding 3: Looking wider doesn't fix it.
+Even taking the maximum over a 4×4-pixel box (16–40 km across), satellites reach the extreme in only 3–8% of events and show about 20% of the peak. The storm's core is not merely displaced; it is smoothed away.
+
+### Finding 4: Different satellite types fail in opposite situations.
+For this comparison I used all 6,950 events of at least 20 mm/h, where the satellites reach the threshold in 7–12% of events overall (3×3 pixels).
+- **Isolated summer thunderstorms, the most common type of extreme in my data:** PERSIANN-CCS (infrared) reaches the threshold in 12% of events; IMERG in only 2%. Infrared sees the very cold tops of deep afternoon thunderstorms. Microwave sensors measure rain more directly but pass over only every few hours, so short-lived storms can slip between overpasses.
+- **Cool-season frontal rain:** the order flips. IMERG reaches 13%, PERSIANN-CCS 5%. Longer-lasting rain is more likely to be caught by a microwave overpass, and its warmer, shallower cloud tops are likely to mislead methods that infer rain from cloud-top temperature.
+- **Time of day:** the same split. Infrared does best in the afternoon and evening; microwave-based products do relatively best at night and in the morning.
+
+> *Insert image: sat_fig3_conditions.png*
+
+### Finding 5: Finer pixels may help, but not enough.
+PERSIANN-CCS has the smallest pixels (4 km) and the highest hit rate among the satellites, but it is also the only infrared-only product, so resolution and algorithm can't be separated here. IMERG has the coarsest (10 km) but most often places rain near the gauge (94%). Neither comes close to radar on intensity.
+
+## What this means
+
+- **Use satellites for where and when it rains, not how hard.** They are excellent at detecting storms and mapping coverage, and weak at hourly peak intensity.
+- **Infrastructure and flood design:** design rainfall (IDF curves) or flood models built on raw satellite data would understate the storms that matter most.
+- **Data-poor regions:** many countries rely on satellites alone for rainfall hazard. Florida, with its dense radar and gauge networks, suggests those estimates of extremes may be far too low.
+- **If you must rely on one product, match it to the weather:** infrared-based does less badly for summer thunderstorms, microwave-based for frontal and cool-season rain. Even the better choice still misses most extremes, so blending with radar or gauges is far preferable.
+- **Bias correction should depend on storm type,** because a single correction factor can't fix errors whose size depends so strongly on storm type.
+
+## Caveats
+
+- A gauge measures a point and a satellite pixel averages tens to hundreds of square kilometres, so some smoothing is expected. The point is that satellite products are often used for exactly these point-scale, hourly questions.
+- This is one state and one decade, and storm types were classified with simple proxies.
+- Return periods use NOAA Atlas 14 central estimates and clock-hour gauge totals. Stage IV is partly gauge-adjusted, so the gauge-free MRMS radar-only results are the cleaner radar benchmark.
+
+## What's next
+
+I'm interested in storm-type-aware correction of satellite rainfall, and in using high-resolution radar to translate pixel averages into the point intensities engineers design for.
+
+If you work with satellite precipitation: which product do you trust for extremes, and in which weather? I'd love to hear from the remote-sensing, hydrology and engineering communities.
+
+## Sources for the Miami event
+
+NOAA Storm Events Database, episode 148171 (Miami-Dade flooding, 26 May 2020):
+[https://www.ncei.noaa.gov/access/storm-events-database/episode-details/148171](https://www.ncei.noaa.gov/access/storm-events-database/episode-details/148171)
+
+- Sweetwater (stalled cars, people stranded near the airport):
+  [https://www.ncei.noaa.gov/access/storm-events-database/event-details/892248](https://www.ncei.noaa.gov/access/storm-events-database/event-details/892248)
+
+- Pinewood (I-95 ramp, trailer park with up to 48 structures affected):
+  [https://www.ncei.noaa.gov/access/storm-events-database/event-details/892252](https://www.ncei.noaa.gov/access/storm-events-database/event-details/892252)
+
+- Opa-locka (apartments with at least 18 in of water inside):
+  [https://www.ncei.noaa.gov/access/storm-events-database/event-details/896928](https://www.ncei.noaa.gov/access/storm-events-database/event-details/896928)
+
+- North Bay Village / Miami Beach (water entering properties):
+  [https://www.ncei.noaa.gov/access/storm-events-database/event-details/896929](https://www.ncei.noaa.gov/access/storm-events-database/event-details/896929)
+
+NOAA Atlas 14 precipitation-frequency estimates, Miami International Airport (25.788°N, 80.317°W):
+[https://hdsc.nws.noaa.gov/pfds/pfds_printpage.html?lat=25.788&lon=-80.317&data=depth&units=english&series=pds](https://hdsc.nws.noaa.gov/pfds/pfds_printpage.html?lat=25.788&lon=-80.317&data=depth&units=english&series=pds)
+
+**Rain gauge data:** NOAA GHCNh hourly record for Miami International Airport (station USW00012839). The NWS Local Storm Report that evening also gave "6.42 inches in the last 2 hours" at the airport.
+
+#RemoteSensing #ExtremeRainfall #Hydrology #FloodRisk #IMERG
