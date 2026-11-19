@@ -17,14 +17,52 @@ This is the analysis behind the LinkedIn article *"California gets the El Niño 
 - Florida's winter rainfall tracks El Niño strength: r = 0.72 with December–February RONI over 77 winters.
 - In strong El Niño winters, the core of the 200 hPa jet along 85°W sits at about 30°N, against about 35°N normally.
 
+## Results
+
+These figures and tables were produced by `se_elnino_analysis.ipynb` (November 2026 run) and are kept in [`results/`](results/).
+
+**Florida vs California, average of the 4 strongest El Niños**
+
+![Cover: California 133% vs Florida 164%](results/figures/cover_A_top4_1920x1080.png)
+
+**Winter 2015–16, the "Godzilla" El Niño**
+
+![2015-16 Dec-Feb rainfall, % of normal](results/figures/li_fig1_2015_16_conus.png)
+
+**Southeast: 4-event average and how many of the 4 winters were wetter than normal**
+
+![Southeast composite and sign count](results/figures/li_fig2_southeast_top4.png)
+
+**Stronger El Niño, wetter Florida winter**
+
+![Florida rainfall vs DJF RONI](results/figures/li_fig3_florida_strength.png)
+
+**Each analog winter**
+
+![Per-event maps](results/figures/fig2_per_event_maps.png)
+
+**Jet stream: normal winter vs strong El Niño (200 hPa, 15-day means, 1 Nov to 31 Mar)**
+
+![Jet stream animation](results/figures/jet_stream_elnino.gif)
+
+Other figures: [fig1_composite_signcount.png](results/figures/fig1_composite_signcount.png) (top-4 and all-7 composites with significance),
+[fig3_roni_vs_rainfall.png](results/figures/fig3_roni_vs_rainfall.png) (7-state, Florida and Tennessee vs RONI),
+[fig_hook_conus.png](results/figures/fig_hook_conus.png), [cover_B_godzilla_1920x1080.png](results/figures/cover_B_godzilla_1920x1080.png),
+[jet_frame_20jan.png](results/figures/jet_frame_20jan.png).
+
+Tables: [el_nino_event_ranking_roni_oni.csv](results/tables/el_nino_event_ranking_roni_oni.csv) (El Niño ranking),
+[se_djf_pct_normal_by_winter.csv](results/tables/se_djf_pct_normal_by_winter.csv) (7-state / Florida / Tennessee % of normal and DJF RONI for every winter),
+[conus_state_strong_elnino_djf.csv](results/tables/conus_state_strong_elnino_djf.csv) (all 48 states).
+
 ## Files
 
 | File | What it is |
 |---|---|
-| `se_elnino_analysis.ipynb` | **The analysis.** The session's code cells, verbatim and in run order, grouped into 8 sections. |
+| `se_elnino_analysis.ipynb` | **The analysis.** The session's code cells, verbatim and in run order, grouped into 8 sections, **with the recorded outputs and figures of the November 2026 run**. |
 | `se_elnino_analysis.py` | The same cells as a plain script (percent format), for reading on GitHub and diffing. |
 | `plot_style.py` | The two plotting helpers the figure cells call (`apply_figure_style`, `panel_letter`). |
 | `environment.yml` | Conda environment with the package versions used. |
+| `results/` | Figures and tables from the November 2026 run. |
 
 ## Method in brief
 
@@ -48,6 +86,19 @@ conda activate se-elnino
 cd se-elnino-winter-rainfall
 jupyter lab se_elnino_analysis.ipynb      # run all cells, top to bottom
 ```
+
+**About the outputs in the notebook.** They are the recorded outputs of the November 2026 run that produced the published results: printed output from the session's execution log, and each figure embedded under the cell that last saved it. Your own run should print the same numbers.
+
+**Faster nClimGrid download.** NOAA's server sometimes throttles single connections (about 44 KB/s per connection in Nov 2026, so roughly 11 hours for the full file). Downloading over 16 connections at once was about 20 times faster in a test. With [aria2](https://aria2.github.io/) (`brew install aria2` on macOS):
+
+```bash
+mkdir -p data
+aria2c -x 16 -s 16 -d data -o nclimgrid_prcp.nc \
+  https://www.ncei.noaa.gov/data/nclimgrid-monthly/access/nclimgrid_prcp.nc
+ls -l data/nclimgrid_prcp.nc      # should be 1,799,212,297 bytes
+```
+
+If you download this way, skip the notebook's download cell (section 2, first cell), which would fetch the file again.
 
 Downloads: nClimGrid is ~1.8 GB, and the NCEP winds take ~10–20 min over OPeNDAP. Plan on ~4 GB of RAM. All outputs (CSV, NetCDF, PNG, MP4, GIF) are written next to the notebook.
 
