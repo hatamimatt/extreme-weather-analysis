@@ -1,0 +1,6 @@
+# downloads and intermediate files written by the notebooks
+event/
+cartopy_data/
+# copies the last notebook-02 cells write to the project root (committed versions are in results/)
+/*.csv
+/*.png

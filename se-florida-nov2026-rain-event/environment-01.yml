@@ -1,0 +1,8 @@
+# Environment for notebook 01, as in the original session (`python` env).
+name: se-florida-nov2026-01
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy=2.4
+  - pandas=2.3.3
+  - requests

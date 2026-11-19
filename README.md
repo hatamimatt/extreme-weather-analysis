@@ -7,6 +7,7 @@ Analyses of extreme rainfall and the climate patterns behind it, with a focus on
 | Folder | Question | Data | Status |
 |---|---|---|---|
 | [`se-elnino-winter-rainfall/`](se-elnino-winter-rainfall/) | How do the strongest El Niños change winter rainfall in the US Southeast, and how does Florida compare with California? | NOAA nClimGrid, NOAA CPC RONI, NCEP/NCAR Reanalysis 1 | Done (Nov 2026) |
+| [`se-florida-nov2026-rain-event/`](se-florida-nov2026-rain-event/) | What caused the record 1–3 Nov 2026 rain in Southeast Florida (Palm Beach, Brevard, Broward): tropical, atmospheric river or stationary convection? | IEM ASOS/LSR/NWS text/radiosondes, MRMS QPE, GFS analyses, NOAA OISST | Done (Nov 2026) |
 
 ## Conventions
 

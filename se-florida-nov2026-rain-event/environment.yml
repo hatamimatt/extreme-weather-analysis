@@ -1,0 +1,16 @@
+# Environment for notebook 02 (the session's `precip` env). It also runs notebook 01.
+# Notebook 01 originally ran in a separate env with pandas 2.3.3 (see environment-01.yml).
+name: se-florida-nov2026
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy=2.4
+  - pandas=3.0
+  - scipy=1.17
+  - matplotlib=3.11
+  - xarray=2026.9
+  - cfgrib=0.9.15
+  - eccodes
+  - cartopy=0.26
+  - netcdf4=1.7
+  - requests
